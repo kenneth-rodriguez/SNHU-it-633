@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Ken Rodriguez
+IT-633: Mobile Application Development
+Final Project I: Functioning And Annotated Android Application
+Professor Venkatesh Baglodi
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- NAVIGATION COMPONENTS -->
+
+    <!-- Create top bar w/ restaurant name. Reuse as needed to save time. -->
+    <!-- Title + title text color to set restaurant name and font color.
+         This should match the example set in the suggestion doc. -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/restaurant_name"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white" />
+
+    <!-- Create calorie counter at the bottom of the screen.
+         RUBRIC: As items are added with long presses, they contribute
+         to the greater calorie count. Press reset to reset calorie count. -->
+    <LinearLayout
+        android:id="@+id/calorie_counter_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <TextView
+            android:id="@+id/textCalories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/calories"
+            android:textStyle="bold" />
+
+        <!-- @string/calorie_count is variable to match current calorie count. -->
+        <TextView
+            android:id="@+id/textViewCalorieCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <!-- reset button to reset our calorie count -->
+        <Button
+            android:id="@+id/resetCalories"
+            style="@android:style/Widget.Material.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="15dp"
+            android:minHeight="10dp"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="15dp"
+            android:text="@string/reset"
+            android:textSize="12sp" />
+    </LinearLayout>
+    <!-- END NAVIGATION COMPONENTS -->
+
+
+    <!-- BODY COMPONENTS -->
+
+    <!-- Draw a list menu to categorize our menu items. -->
+    <!-- While "legacy" code, an expandable list view is utilized to streamline
+         development and provide a scalable and visually cohesive format.
+
+         I'm also suffering from some pretty bad burnout and can't comprehend
+         card views right now. My apologies, in that regard. -->
+    <ExpandableListView
+        android:id="@+id/menuListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/calorie_counter_container"/>
+    <!-- android:layout_above="@id/calorie_counter_container" -->
+
+    <!-- END BODY COMPONENTS -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ken Rodriguez Final Project Milestone I</string>
+    <string name="restaurant_name">Ace\'s Restaurant</string>
+    <string name="calories">Total Calories</string>
+    <string name="calorie_count">%d</string>
+    <string name="reset">RESET</string>
+    <string name="calories_added_notif">Item Added to Calorie Counter!</string>
+    <string name="thumbnail_sized_image_of_menu_item">Thumbnail-sized image of menu item.</string>
+    <string name="cal_text_item_page">Calories</string>
+</resources>
